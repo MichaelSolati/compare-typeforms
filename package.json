@@ -1,0 +1,41 @@
+{
+  "name": "compare-typeforms",
+  "version": "0.0.0",
+  "description": "Express endpoint to compare two Typeforms to see if they match",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js",
+    "start:ts": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelSolati/compare-typeforms.git"
+  },
+  "keywords": [
+    "typeform",
+    "compare",
+    "express",
+    "node"
+  ],
+  "author": "Michael Solati <mkslt04@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichaelSolati/compare-typeforms/issues"
+  },
+  "homepage": "https://github.com/MichaelSolati/compare-typeforms#readme",
+  "dependencies": {
+    "@typeform/api-client": "^1.6.1",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/lodash": "^4.14.144",
+    "@types/node": "^12.12.3",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  }
+}
