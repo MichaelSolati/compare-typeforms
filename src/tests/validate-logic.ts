@@ -84,7 +84,10 @@ export const validateLogic = (submission: Typeform.Form, example: Typeform.Form)
   // Does each field have enough actions? We check here because it's easier to map the logic based on refs after they're changed
   s2eLogicJumps.forEach((s2eLogic) => {
     const eLogic = eLogicJumps.find((elj) => elj.ref === s2eLogic.ref);
-    if (eLogic.actions.length !== s2eLogic.actions.length) {
+    if (!eLogic) {
+      failed();
+      result.message.push(`We expected the "${s2eLogic.type}" with a ref of "${e2sRefs.get(s2eLogic.ref)}", however we couldn't find any matching logic`);
+    } else if (eLogic.actions.length !== s2eLogic.actions.length) {
       failed();
       result.message.push(`We expected the "${s2eLogic.type}" with a ref of "${e2sRefs.get(s2eLogic.ref)}" to have ${eLogic.actions.length} action(s), however it had ${s2eLogic.actions.length}`);
     }
